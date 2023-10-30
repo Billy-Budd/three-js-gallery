@@ -1,6 +1,4 @@
-*.jpg
-*.png
-*.JPG
-
 node_modules/
-images/
+images/artworks/*
+images/artwork/*
+images/artworks1/*

@@ -3,7 +3,8 @@
         "main_wall_color": "#ffffff",
         "side_wall_color": "#ffffff",
         "floor_color": "#FFFFFF",
-        "ceiling_color": "#FFFFFF"
+        "ceiling_color": "#FFFFFF",
+        "floor_texture": "parquet_wood.jpg"
     },
     "size": {
         "length_ft": 25,

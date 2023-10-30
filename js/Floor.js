@@ -1,11 +1,12 @@
 import * as THREE from 'three';
+import primary_json from '../example.json' assert { type: "json" };
 
 export const setupFloor = (scene, texture_loader, floor_width, floor_length, floor_depth) => {
 
-    const floor_texture = texture_loader.load('images/floor.jpg');  // load texture
+    const floor_texture = texture_loader.load('images/'+primary_json.appearance.floor_texture);  // load texture
     floor_texture.wrapS = THREE.RepeatWrapping;                     // horizontal wrap
     floor_texture.wrapT = THREE.RepeatWrapping;                     // vertical wrap
-    floor_texture.repeat.set(floor_width / 8, floor_length / 8);    // repeat texture (width, height)
+    floor_texture.repeat.set(floor_width / 4, floor_length / 4);    // repeat texture (width, height)
 
     // create geometry for floor (width, height)
     const plane_geometry = new THREE.PlaneGeometry(floor_width, floor_length); 
