@@ -1,6 +1,28 @@
 info cards
-fix lighting/shadows
-mattes
-frames - portrait vs landscape?
 curator vs public view
 save data back to json { positions, mattes, frames, lighting, changes in desc }
+
+frames:
+move function from Main.js to Frames.js
+change all hardcoded values into values from json
+  - probably will have to do in Art.js and just send over as arguments
+
+the plan: make the frame as if it is in the middle of the room
+then, append it as child to a picture
+when picture is moved to a wall, the frame should be moved
+this *in theory* should work
+
+addtionally: delete the garbage code from main that has the frame generation
+
+once this is done, we can make mattes
+mattes should be easy. We can just use the size of the frame and put the matte behind a picture
+IF THIS CANNOT be the case: plan: make planes similar to what frames does
+
+lighting? this part is going to suck. I don't know what to do here. 
+
+Once these things are done, we need a way that a frame, matte, image desc, image placement can be moved inside the simulation. this needs to require curator view, need to ask backend team how we can do this
+
+once things can be changed, we should take all these values and update the json (which also means we need to send back the json so that it can be saved?)
+
+user options
+- flooring options

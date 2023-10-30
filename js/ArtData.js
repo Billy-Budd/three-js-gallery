@@ -30,7 +30,8 @@ export function generateArtData() {
                     height: image.border.matte.custom_height
                 },
 
-                frame: image.border.frame
+                frame: image.border.frame,
+                frame_thick: image.border.frame_thick
             },
 
             metadata: {
