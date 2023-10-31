@@ -58,39 +58,39 @@ console.log("photo_1:", photos_on_1,
 
 const lighting = setupLighting(scene);
 
-
+/*
 const frame1 = new THREE.Mesh(
 	new THREE.PlaneGeometry(20/12, 1/12),
-	new THREE.MeshBasicMaterial({ color: 0xff00f0,
+	new THREE.MeshStandardMaterial({ color: 0xff00f0,
 		side: THREE.DoubleSide}),
 );  
 const frame2 = new THREE.Mesh(
 	new THREE.PlaneGeometry(20/12, 1/12),
-	new THREE.MeshBasicMaterial({ color: 0x000000,
+	new THREE.MeshStandardMaterial({ color: 0x000000,
 		side: THREE.DoubleSide}),
 );  
 
 frame2.position.set(0, 15/12, 0);
 const frame3 = new THREE.Mesh(
 	new THREE.PlaneGeometry(1/12, 14/12),
-	new THREE.MeshBasicMaterial({ color: 0x00ff00,
+	new THREE.MeshStandardMaterial({ color: 0x00ff00,
 		side: THREE.DoubleSide}),
 ); 
 const frame4 = new THREE.Mesh(
 	new THREE.PlaneGeometry(1/12, 14/12),
-	new THREE.MeshBasicMaterial({ color: 0xff0000,
+	new THREE.MeshStandardMaterial({ color: 0xff0000,
 		side: THREE.DoubleSide}),
 );  
 
 const frame5 = new THREE.Mesh(
 	new THREE.PlaneGeometry(1/12, 16/12),
-	new THREE.MeshBasicMaterial({ color: 0xffff00,
+	new THREE.MeshStandardMaterial({ color: 0xffff00,
 		side: THREE.DoubleSide}),
 );  
 
 const frame6 = new THREE.Mesh(
 	new THREE.PlaneGeometry(1/12, 16/12),
-	new THREE.MeshBasicMaterial({ color: 0xff0000,
+	new THREE.MeshStandardMaterial({ color: 0xff0000,
 		side: THREE.DoubleSide}),
 );  
 
@@ -107,18 +107,18 @@ frame6.rotation.y = -Math.PI / 2;
 
 const frame7 = new THREE.Mesh(
 	new THREE.PlaneGeometry(20/12, 1/12),
-	new THREE.MeshBasicMaterial({ color: 0x00ffff,
+	new THREE.MeshStandardMaterial({ color: 0x00ffff,
 		side: THREE.DoubleSide}),
 );  
 const frame8 = new THREE.Mesh(
 	new THREE.PlaneGeometry(20/12, 1/12),
-	new THREE.MeshBasicMaterial({ color: 0x0000ff,
+	new THREE.MeshStandardMaterial({ color: 0x0000ff,
 		side: THREE.DoubleSide}),
 );  
 
 const frame9 = new THREE.Mesh(
 	new THREE.PlaneGeometry(18/12, 1/48),
-	new THREE.MeshBasicMaterial({ color: 0xffff00,
+	new THREE.MeshStandardMaterial({ color: 0xffff00,
 	side: THREE.DoubleSide})
 );
 
@@ -127,7 +127,7 @@ frame9.position.set(0, 0.5/12, -1/96);
 
 const frame10 = new THREE.Mesh(
 	new THREE.PlaneGeometry(18/12, 1/48),
-	new THREE.MeshBasicMaterial({ color: 0xff00ff,
+	new THREE.MeshStandardMaterial({ color: 0xff00ff,
 	side: THREE.DoubleSide})
 );
 
@@ -137,7 +137,7 @@ frame10.position.set(0, 14.5/12, -1/96);
 
 const frame11 = new THREE.Mesh(
 	new THREE.PlaneGeometry(14/12, 1/48),
-	new THREE.MeshBasicMaterial({ color: 0x00ff00,
+	new THREE.MeshStandardMaterial({ color: 0x00ff00,
 	side: THREE.DoubleSide})
 );
 
@@ -147,7 +147,7 @@ frame11.position.set(9/12,7.5/12,-1/96);
 
 const frame12 = new THREE.Mesh(
 	new THREE.PlaneGeometry(14/12, 1/48),
-	new THREE.MeshBasicMaterial({ color: 0x0000ff,
+	new THREE.MeshStandardMaterial({ color: 0x0000ff,
 	side: THREE.DoubleSide})
 );
 
@@ -161,8 +161,7 @@ frame7.rotation.x = Math.PI/2;
 frame8.rotation.x = Math.PI/2;
 
 scene.add(frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, frame11, frame12);
-
-
+*/
 
 createBoundingBoxes(walls);
 

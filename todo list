@@ -24,5 +24,9 @@ Once these things are done, we need a way that a frame, matte, image desc, image
 
 once things can be changed, we should take all these values and update the json (which also means we need to send back the json so that it can be saved?)
 
+addtl
+clicking near photo sets position in good view
+
+
 user options
 - flooring options

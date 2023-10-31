@@ -30,6 +30,7 @@ export const setupRendering = (
 
         
         art.forEach((art) => {
+            
             const distance_to_art = camera.position.distanceTo(art.position);
 
             if (distance_to_art < distance_threshold) {
