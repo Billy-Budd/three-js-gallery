@@ -7,6 +7,8 @@ move function from Main.js to Frames.js
 change all hardcoded values into values from json
   - probably will have to do in Art.js and just send over as arguments
 
+new note: the frames are now fit the exact size of an image. may have to revert this. if a matte is like 16x20, then the frame will be like 17x21 and fit the entire image
+
 the plan: make the frame as if it is in the middle of the room
 then, append it as child to a picture
 when picture is moved to a wall, the frame should be moved

@@ -25,7 +25,7 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
             material
         );
 
-        const frame = createFrame(data.size.width, data.size.height, null);
+        const frame = createFrame(data.size.width, data.size.height, 0x000000);
 
         let art_group = new THREE.Group();
 
@@ -48,6 +48,9 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
                 art_group.position.set((photos_placed_1 / (photos_on_1 + 1)) * gallery_width - (gallery_width / 2), // set each photo on the wall to be evenly spaced from photographic midpoint
                                   0,                                                                          // set y - set at eyelevel
                                -((gallery_length / 2) - wall_offset));                                        // set z - z does not change, this is distance from wall
+
+                art.position.set(0, 0, -(1 / 96));
+                frame.position.set(0, -((data.size.height + 1) / 2) / 12, 0);
             }
             
             photos_placed_1++; // add one to counter, even if this photo is using a custom position, this is required for defaults
@@ -68,6 +71,9 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
                 art_group.position.set(((gallery_width / 2) - wall_offset),                                             // set x - x does not change, this is distance from wall
                                    0,                                                                             // set y - set at eyelevel
                                   (photos_placed_2 / (photos_on_2 + 1)) * gallery_length - (gallery_length / 2)); // set z - sets each photo evenly spaced from by photographic midpoint
+
+                art.position.set(0, 0, -(1 / 96));
+                frame.position.set(0, -((data.size.height + 1) / 2) / 12, 0);
             }
 
             photos_placed_2++; // add one to counter, even if this photo is using custom position, it is required for defaults
@@ -86,9 +92,12 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
 
             // default position
             else {
-                art_group.position.set(-((photos_placed_3 / (photos_on_3 + 1)) * gallery_width - (gallery_width / 2)),    // set x - x does not change, this is distance from wall
-                                   0,                                                                             // set y - set at eyelevel
-                                  ((gallery_length / 2) - wall_offset));                                          // set z - sets each photo evenly spaced from by photographic midpoint
+                art_group.position.set(-((photos_placed_3 / (photos_on_3 + 1)) * gallery_width - (gallery_width / 2)),  // set x - x does not change, this is distance from wall
+                                   0,                                                                                     // set y - set at eyelevel
+                                  ((gallery_length / 2) - wall_offset));                                                // set z - sets each photo evenly spaced from by photographic midpoint
+
+                art.position.set(0, 0, -(1 / 96));
+                frame.position.set(0, -((data.size.height + 1) / 2) / 12, 0);
             }
 
             photos_placed_3++; // add one to counter, even if this photo is using custom position, it is required for defaults
@@ -100,9 +109,11 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
 
             // custom position check
             if (data.position.custom_position == true) {
-                art_group.position.set(((gallery_width / 2) - wall_offset),       // set x - x does not change, this is distance from wall
+                art_group.position.set(((gallery_width / 2) - wall_offset), // set x - x does not change, this is distance from wall
                                    data.position.center_in_from_eyelevel,   // set y
                                    data.position.center_in_from_left);      // set z
+
+                
             }
 
             // default position
@@ -110,6 +121,9 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
                 art_group.position.set(-((gallery_width / 2) - wall_offset),                                             // set x - x does not change, this is distance from wall
                                     0,                                                                             // set y - set at eyelevel
                                    -((photos_placed_4 / (photos_on_4 + 1)) * gallery_length - (gallery_length / 2))); // set z - sets each photo evenly spaced from by photographic midpoint
+                    
+                art.position.set(0, 0, -(1 / 96));
+                frame.position.set(0, -((data.size.height + 1) / 2) / 12, 0);
             }
 
             photos_placed_4++; // add one to counter, even if this photo is using custom position, it is required for defaults
