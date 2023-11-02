@@ -31,7 +31,9 @@ export function generateArtData() {
                 },
 
                 frame: image.border.frame,
-                frame_thick: image.border.frame_thick
+                frame_width: image.border.frame_width,
+                frame_height: image.border.frame_height,
+                frame_color: image.border.frame_color
             },
 
             metadata: {

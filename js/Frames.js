@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export function createFrame(frame_width, frame_height, frame_color){
+export function createFrame(frame_width, frame_height, frame_color, frame_secondary){
     let frame_group = new THREE.Group();
     //scene.add(frame_group);
 
@@ -10,6 +10,7 @@ export function createFrame(frame_width, frame_height, frame_color){
 
     //const frame_color = 0xffffff;
 
+    // possibly remove
     frame_width = frame_width + 2;
     frame_height = frame_height + 2;
 
@@ -47,7 +48,7 @@ export function createFrame(frame_width, frame_height, frame_color){
 
     const outer_right = new THREE.Mesh(
 	    new THREE.PlaneGeometry(1 / 12, frame_height / 12),
-	    new THREE.MeshStandardMaterial({ color: frame_color,
+	    new THREE.MeshStandardMaterial({ color: frame_secondary,
 			side: THREE.DoubleSide}),
     );
 
@@ -58,7 +59,7 @@ export function createFrame(frame_width, frame_height, frame_color){
 
     const outer_left = new THREE.Mesh(
 	    new THREE.PlaneGeometry(1 / 12, frame_height / 12),
-	    new THREE.MeshStandardMaterial({ color: frame_color, 
+	    new THREE.MeshStandardMaterial({ color: frame_secondary, 
 			side: THREE.DoubleSide}),
     );
 
@@ -69,7 +70,7 @@ export function createFrame(frame_width, frame_height, frame_color){
 
     const outer_bottom = new THREE.Mesh(
 	    new THREE.PlaneGeometry(frame_width / 12, 1 / 12),
-	    new THREE.MeshStandardMaterial({ color: frame_color, 
+	    new THREE.MeshStandardMaterial({ color: frame_secondary, 
 			side: THREE.DoubleSide}),
     );
 
@@ -78,7 +79,7 @@ export function createFrame(frame_width, frame_height, frame_color){
 
     const outer_top = new THREE.Mesh(
 	    new THREE.PlaneGeometry(frame_width / 12, 1 / 12),
-	    new THREE.MeshStandardMaterial({ color: frame_color, 
+	    new THREE.MeshStandardMaterial({ color: frame_secondary, 
 			side: THREE.DoubleSide}),
     );
 
@@ -87,7 +88,7 @@ export function createFrame(frame_width, frame_height, frame_color){
 
     const inner_bottom = new THREE.Mesh(
 	    new THREE.PlaneGeometry((frame_width - 2) / 12, 1 / 48),
-	    new THREE.MeshStandardMaterial({ color: frame_color,
+	    new THREE.MeshStandardMaterial({ color: frame_secondary,
 			side: THREE.DoubleSide}),
     );
 
@@ -96,7 +97,7 @@ export function createFrame(frame_width, frame_height, frame_color){
 
     const inner_top = new THREE.Mesh(
 	    new THREE.PlaneGeometry((frame_width - 2) / 12, 1 / 48),
-	    new THREE.MeshStandardMaterial({ color: frame_color,
+	    new THREE.MeshStandardMaterial({ color: frame_secondary,
 			side: THREE.DoubleSide}), 
     );
 
@@ -105,7 +106,7 @@ export function createFrame(frame_width, frame_height, frame_color){
 
     const inner_right = new THREE.Mesh(
 	    new THREE.PlaneGeometry((frame_height - 2) / 12, 1 / 48),
-	    new THREE.MeshStandardMaterial({ color: frame_color,
+	    new THREE.MeshStandardMaterial({ color: frame_secondary,
 			side: THREE.DoubleSide}),
     );
 
@@ -115,7 +116,7 @@ export function createFrame(frame_width, frame_height, frame_color){
 
     const inner_left = new THREE.Mesh(
 	    new THREE.PlaneGeometry((frame_height - 2) / 12, 1 / 48),
-	    new THREE.MeshStandardMaterial({ color: frame_color,
+	    new THREE.MeshStandardMaterial({ color: frame_secondary,
 			side: THREE.DoubleSide}),
     );
 
