@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import primary_json from '../example.json' assert { type: "json" };
 
-import { scene, setupScene, animate, addObjectsToScene } from './Scene.js';
+import { scene, setupScene,	 addObjectsToScene } from './Scene.js';
 import { createArt } from './Art.js';
 import { setupWalls } from './Walls.js';
 import { setupLighting } from './Lighting.js';
@@ -29,16 +29,24 @@ console.log("Gallery Height Total: ", gallery_height+gallery_depth,
 			"Gallery Length: ", gallery_length);
 
 // create gallery bounds
-const walls = setupWalls(scene, texture_loader, gallery_width, gallery_length, gallery_height, gallery_depth);
-const floor = setupFloor(scene, texture_loader, gallery_width, gallery_length, gallery_depth);
-const ceiling = setupCeiling(scene, texture_loader, gallery_width, gallery_length, gallery_height);
+const walls = setupWalls(scene, texture_loader, 
+	gallery_width, gallery_length, gallery_height, gallery_depth, 
+	primary_json.appearance.main_wall_color, primary_json.appearance.side_wall_color);
 
-let number_of_photos = 0, 
-    photos_on_1 = 0,
+const floor = setupFloor(scene, texture_loader, 
+	gallery_width, gallery_length, gallery_depth, 
+	primary_json.appearance.floor_color, primary_json.appearance.floor_texture);
+
+const ceiling = setupCeiling(scene, texture_loader, 
+	gallery_width, gallery_length, gallery_height, 
+	primary_json.appearance.ceiling_color);
+
+let photos_on_1 = 0,
     photos_on_2 = 0,
     photos_on_3 = 0,
     photos_on_4 = 0;
 
+// count photos on walls
 primary_json.images.forEach((image) => {
 	if (image.metadata.direction == 1) { photos_on_1++; }
 	else if (image.metadata.direction == 2) { photos_on_2++; }
@@ -51,7 +59,9 @@ console.log("photo_1:", photos_on_1,
 			"photo_3:", photos_on_3,
 			"photo_4:", photos_on_4);
 
-	const art = createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3, photos_on_4, gallery_width, gallery_length, wall_offset);
+const art = createArt(texture_loader, 
+	photos_on_1, photos_on_2, photos_on_3, photos_on_4, 
+	gallery_width, gallery_length, wall_offset);
 
 const lighting = setupLighting(scene);
 

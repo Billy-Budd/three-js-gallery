@@ -1,34 +1,49 @@
 info cards
 curator vs public view
-save data back to json { positions, mattes, frames, lighting, changes in desc }
 
+
+important tasks:
+- click + good photo viewing position
+- entry card update
+- cover photo (ask diane for picture, or go take some with dslr from library)
+- matte math for weighted bottom
+- finalize json with new stuff and reflect in artdata.js
+- ask frontend about outside sim editing
+- info card update
+- lighting, see notes below (moreso, make more lights that are weaker??)
+- saving json stuff, see below
+
+medium importance:
+- make json test all cases for frame generation
+- make json test all cases for art position (default and custom positions)
+- show different color mattes
+- show different color frames
+- remove images.border.matte.present value, doesnt do anything
+
+future stuff:
+- curator vs public view
+- how to incorporate with existing website. I think vaughan will know something about this but i feel bad about asking him how to do this
 frames:
-move function from Main.js to Frames.js
-change all hardcoded values into values from json
-  - probably will have to do in Art.js and just send over as arguments
 
-new note: the frames are now fit the exact size of an image. may have to revert this. if a matte is like 16x20, then the frame will be like 17x21 and fit the entire image
 
-the plan: make the frame as if it is in the middle of the room
-then, append it as child to a picture
-when picture is moved to a wall, the frame should be moved
-this *in theory* should work
+RAMBLING NOTES:
 
-addtionally: delete the garbage code from main that has the frame generation
-
-once this is done, we can make mattes
-mattes should be easy. We can just use the size of the frame and put the matte behind a picture
-IF THIS CANNOT be the case: plan: make planes similar to what frames does
+math:: [size of matte - height of art] / 4
+take this value and move up the art by this amount to give it some weight at the bottom? ask diane
 
 lighting? this part is going to suck. I don't know what to do here. 
+ - ask diane about this. can we just do 4 spotlights? or maybe we can do one for each photo. this is going to be like another 2 hours of work or something :((((
 
 Once these things are done, we need a way that a frame, matte, image desc, image placement can be moved inside the simulation. this needs to require curator view, need to ask backend team how we can do this
-
-once things can be changed, we should take all these values and update the json (which also means we need to send back the json so that it can be saved?)
-
-addtl
-clicking near photo sets position in good view
-
+ - we will need a way server side to do this. must ask backend what they think about this 
+ - we can move it all we want in the sim, but there is no way to save these values
 
 user options
 - flooring options
+
+NOTES:
+
+new note: the frames are set to be a bit larger than originally intended. may remove when there is actual art from the collection, but it fits better like this for now
+
+theres a thing at the bottom of Frames.js that has some math for moving the frames in a logical way to move them to the correct y position, but need to know if that works with custom positions, which means that there needs to be another json (or rather, we could make a single wall check this) 
+

@@ -1,11 +1,14 @@
-/**
- * 
- * determine port/landscape from preexisting hxw value
- * forget about the trig thing for nwo, just set them in the middle of a frame
- * need to reask about frame sizes unless someone remembers
- * matte color? do we give the user options, idk
- * 
- * 
- * 16x20 20x24. Some variable squares (34x36) frames are 7/16 by inch and a quarter 
+import * as THREE from 'three';
 
- */
+export function createMatte(matte_width, matte_height, matte_color) {
+
+    // create matte
+    const matte = new THREE.Mesh(
+        new THREE.PlaneGeometry(matte_width / 12, matte_height / 12),
+        new THREE.MeshBasicMaterial({ color: matte_color, 
+            side: THREE.DoubleSide,
+        }),
+    )
+
+    return matte;
+}

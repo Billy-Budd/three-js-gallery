@@ -1,7 +1,6 @@
 import * as THREE from 'three';
-import primary_json from '../example.json' assert { type: "json" };
 
-export function setupWalls(scene, texture_loader, wall_width, wall_length, gallery_height, gallery_depth) {
+export function setupWalls(scene, texture_loader, wall_width, wall_length, gallery_height, gallery_depth, main_color, side_color) {
     
     // create a group for walls for bounding box and adding to scene
     let wall_group = new THREE.Group();
@@ -27,7 +26,7 @@ export function setupWalls(scene, texture_loader, wall_width, wall_length, galle
         new THREE.BoxGeometry(wall_width, wall_height, wall_thick),
         new THREE.MeshLambertMaterial({
             map: wall_texture_frontback,
-            color: primary_json.appearance.main_wall_color,
+            color: main_color,
         }),
     );
 
@@ -35,7 +34,7 @@ export function setupWalls(scene, texture_loader, wall_width, wall_length, galle
         new THREE.BoxGeometry(wall_width, wall_height, wall_thick),
         new THREE.MeshLambertMaterial({
             map: wall_texture_frontback,
-            color: primary_json.appearance.side_wall_color,
+            color: side_color,
         }),
     );
 
@@ -50,7 +49,7 @@ export function setupWalls(scene, texture_loader, wall_width, wall_length, galle
         new THREE.BoxGeometry(wall_length, wall_height, wall_thick),
         new THREE.MeshLambertMaterial({
             map: wall_texture_leftright,
-            color: primary_json.appearance.side_wall_color,
+            color: side_color,
         }),
     );
 
@@ -58,7 +57,7 @@ export function setupWalls(scene, texture_loader, wall_width, wall_length, galle
         new THREE.BoxGeometry(wall_length, wall_height, wall_thick),
         new THREE.MeshLambertMaterial({
             map: wall_texture_leftright,
-            color: primary_json.appearance.side_wall_color,
+            color: side_color,
         }),
     );
 

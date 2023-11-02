@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-export const setupCeiling = (scene, texture_loader, ceiling_width, ceiling_length, ceiling_height) => {
+export const setupCeiling = (scene, texture_loader, ceiling_width, ceiling_length, ceiling_height, ceiling_color) => {
 
     const ceiling_texture = texture_loader.load('images/wall.jpg'); // load texture
     ceiling_texture.wrapS = THREE.RepeatWrapping;                   // horizontal wrap
@@ -14,9 +14,10 @@ export const setupCeiling = (scene, texture_loader, ceiling_width, ceiling_lengt
     const plane_material = new THREE.MeshPhongMaterial({
         map: ceiling_texture,
         side: THREE.DoubleSide,
+        color: ceiling_color,
     });
 
-    // creaet mesh
+    // create mesh
     const ceiling_plane = new THREE.Mesh(plane_geometry, plane_material);
 
     ceiling_plane.rotation.x = Math.PI / 2;     // make plane horizontal (radians)

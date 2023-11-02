@@ -1,9 +1,8 @@
 import * as THREE from 'three';
-import primary_json from '../example.json' assert { type: "json" };
 
-export const setupFloor = (scene, texture_loader, floor_width, floor_length, floor_depth) => {
+export const setupFloor = (scene, texture_loader, floor_width, floor_length, floor_depth, floor_color, floor_texture_name) => {
 
-    const floor_texture = texture_loader.load('images/'+primary_json.appearance.floor_texture);  // load texture
+    const floor_texture = texture_loader.load('images/' + floor_texture_name);  // load texture
     floor_texture.wrapS = THREE.RepeatWrapping;                     // horizontal wrap
     floor_texture.wrapT = THREE.RepeatWrapping;                     // vertical wrap
     floor_texture.repeat.set(floor_width / 4, floor_length / 4);    // repeat texture (width, height)
@@ -15,6 +14,7 @@ export const setupFloor = (scene, texture_loader, floor_width, floor_length, flo
     const plane_material = new THREE.MeshPhongMaterial({
         map: floor_texture,
         side: THREE.DoubleSide,
+        color: floor_color,
     });
 
     // create mesh
