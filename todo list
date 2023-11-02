@@ -1,7 +1,3 @@
-info cards
-curator vs public view
-
-
 important tasks:
 - click + good photo viewing position
 - entry card update
@@ -19,12 +15,12 @@ medium importance:
 - show different color mattes
 - show different color frames
 - remove images.border.matte.present value, doesnt do anything
+- create loading screen
+- remove movement controls when mouse is unlocked
 
 future stuff:
 - curator vs public view
 - how to incorporate with existing website. I think vaughan will know something about this but i feel bad about asking him how to do this
-frames:
-
 
 RAMBLING NOTES:
 
@@ -35,7 +31,7 @@ lighting? this part is going to suck. I don't know what to do here.
  - ask diane about this. can we just do 4 spotlights? or maybe we can do one for each photo. this is going to be like another 2 hours of work or something :((((
 
 Once these things are done, we need a way that a frame, matte, image desc, image placement can be moved inside the simulation. this needs to require curator view, need to ask backend team how we can do this
- - we will need a way server side to do this. must ask backend what they think about this 
+ - we will need a way server side to do this (saving movements). must ask backend what they think about this 
  - we can move it all we want in the sim, but there is no way to save these values
 
 user options
@@ -43,7 +39,7 @@ user options
 
 NOTES:
 
-new note: the frames are set to be a bit larger than originally intended. may remove when there is actual art from the collection, but it fits better like this for now
-
-theres a thing at the bottom of Frames.js that has some math for moving the frames in a logical way to move them to the correct y position, but need to know if that works with custom positions, which means that there needs to be another json (or rather, we could make a single wall check this) 
+frames:
+- the frames are set to be a bit larger than originally intended. may remove when there is actual art from the collection, but it fits better like this for now
+- theres a thing at the bottom of Frames.js that has some math for moving the frames in a logical way to move them to the correct y position, but need to know if that works with custom positions, which means that there needs to be another json (or rather, we could make a single wall check this) 
 

@@ -32,12 +32,7 @@ export const setupScene = () =>  {
     renderer.setSize(window_width, window_height);
     document.body.appendChild(renderer.domElement);
 
-
     // render options
-
-    // shadow options - should apply when frames are added
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFShadowMap;
 
     // it says .outputEncoding is deprecated, but it is still usable! 
     // It is very important to keep this in as the colors of the scene will look very unsaturated/grayed without it. 
@@ -49,14 +44,13 @@ export const setupScene = () =>  {
     scene.add(controls.getObject());
 
     // resize window when window is resized
-    // currently does not work, have to reload page
-    window.addEventListener('resize', onWindowResize, false);
-
-    function onWindowResize() {
+    window.addEventListener('resize', function() {
+        window_width = window.innerWidth;
+        window_height = window.innerHeight;
         camera.aspect = window_width / window_height;
         camera.updateProjectionMatrix();
         renderer.setSize(window_width, window_height);
-    }
+    });
 
     return { camera, controls, renderer };
 };

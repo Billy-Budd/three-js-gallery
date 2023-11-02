@@ -35,7 +35,18 @@ export const setupRendering = (
 
             if (distance_to_art < distance_threshold) {
                 art_to_show = art;
+                document.addEventListener('mousedown', function() {
+                    //console.log("clicked!");
+
+                    if (art.metadata.direction == 1) {
+                        console.log("thisworked")
+                    }
+
+                    camera.position.set(art.position.x - distance_threshold,0,art.position.z - distance_threshold);
+                });
             }
+
+            
         });
 
         if (art_to_show) {
