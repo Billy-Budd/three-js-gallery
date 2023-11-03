@@ -1,30 +1,19 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
-export const setupLighting = (scene) => {
+export function createAmbientLight(color, intensity) {
+    const ambient_light = new THREE.AmbientLight(color, intensity);
+    return ambient_light;
+}
 
-    const ambient_light = new THREE.AmbientLight(0xffffff, 2.5);
-    scene.add(ambient_light);
+export function createSpotlight(intensity, color, art_vector, gallery_height) {
+    const spotlight = new THREE.SpotLight(color, intensity);
 
-    function createSpotlight(x, y, z, intensity, target_position, color) {
-        const spotlight = new THREE.SpotLight(color, intensity);
-        spotlight.position.set(x, y, z);
-        spotlight.target.position.copy(target_position);
-        spotlight.castShadow = true;
-        spotlight.angle = Math.PI / 3;
-        spotlight.penumbra = 1;
-        spotlight.decay = 0;
-        spotlight.distance = 40;
-        spotlight.shadow.mapSize.width = 1024;
-        spotlight.shadow.mapSize.height = 1024;
-        return spotlight;
-    }
-
-    const spotlight1 = createSpotlight(0, 20, -10, 2, new THREE.Vector3(0, 2, -20), 0xffffff);
-    const spotlight2 = createSpotlight(0, 20, 10, 2, new THREE.Vector3(0, 2, 20), 0xffffff);
-    const spotlight3 = createSpotlight(-10, 20, 0, 2, new THREE.Vector3(-20, 2, 0), 0xffffff);
-    const spotlight4 = createSpotlight(10, 20, 0, 2, new THREE.Vector3(20, 2, 0), 0xffffff);
-
-    scene.add(spotlight1, spotlight2, spotlight3, spotlight4);
-  
-    scene.add(spotlight1.target, spotlight2.target, spotlight3.target, spotlight4.target);
-};
+    spotlight.position.set(art_vector.x - 5, gallery_height - (1 / 12), art_vector.z);
+    spotlight.target.position.copy(art_vector);
+    spotlight.angle = Math.PI / 4;
+    spotlight.penumbra = 0.2;
+    spotlight.decay = 0;
+    //spotlight.distance = Math.sqrt(art_vector.x * art_vector.x + gallery_height * gallery_height);
+    spotlight.distance = 40;
+    return spotlight;
+}

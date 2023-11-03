@@ -4,7 +4,7 @@ import primary_json from '../example.json' assert { type: "json" };
 import { scene, setupScene,	 addObjectsToScene } from './Scene.js';
 import { createArt } from './Art.js';
 import { setupWalls } from './Walls.js';
-import { setupLighting } from './Lighting.js';
+import { createAmbientLight, createSpotlight } from './Lighting.js';
 import { setupFloor } from './Floor.js';
 import { setupCeiling } from './Ceiling.js';
 import { createBoundingBoxes } from './BoundingBox.js';
@@ -17,14 +17,14 @@ let { camera, controls, renderer } = setupScene();
 
 const texture_loader = new THREE.TextureLoader();
 
-let gallery_width = primary_json.size.width_ft,   // units total in left and right directions of (0, 0, 0)
-    gallery_length = primary_json.size.length_ft,  // units total in forward and back directions of (0, 0, 0)
-    gallery_height = primary_json.size.height_ft - 5,  // height of gallery from (0,0,0)
+let gallery_width = primary_json.size.width_ft,       // units total in left and right directions of (0, 0, 0)
+    gallery_length = primary_json.size.length_ft,     // units total in forward and back directions of (0, 0, 0)
+    gallery_height = primary_json.size.height_ft -5,  // height of gallery from (0,0,0)
     gallery_depth = 5,    // depth of gallery from (0,0,0)
-    wall_offset = 1/12; // 1 inch (1/12 of a unit) so art is 1 inch off the wall for frames
+    wall_offset = 1 / 12; // 1 inch (1/12 of a unit) so art is 1 inch off the wall for frames
 
 // checking if JSON was read correctly
-console.log("Gallery Height Total: ", gallery_height+gallery_depth,
+console.log("Gallery Height Total: ", gallery_height + gallery_depth,
 			"Gallery Width: ", gallery_width,
 			"Gallery Length: ", gallery_length);
 
@@ -63,7 +63,12 @@ const art = createArt(texture_loader,
 	photos_on_1, photos_on_2, photos_on_3, photos_on_4, 
 	gallery_width, gallery_length, wall_offset);
 
-const lighting = setupLighting(scene);
+//const lighting = setupLighting(scene);
+
+const ambientlight22 = createAmbientLight(0xffffff, 1.5);
+scene.add(ambientlight22);
+const aaa = createSpotlight(1.7, 0xffffff, new THREE.Vector3(-7.5, 0, -12.41666), gallery_height);
+scene.add(aaa);
 
 createBoundingBoxes(walls);
 
@@ -72,4 +77,4 @@ setupEventListeners(controls);
 
 addObjectsToScene(scene, art);
 
-setupRendering(scene, camera, renderer, art, controls, walls);
+setupRendering(scene, camera, renderer, art, controls, walls, gallery_width, gallery_length);

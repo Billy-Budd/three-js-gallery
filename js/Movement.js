@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { controls_enabled } from './Menu';
 
 // initialize as false so the player is not moving
 export const keys_pressed = {
@@ -18,6 +19,12 @@ export const keys_pressed = {
 
 // update movement according to key pressed
 export const updateMovement = (delta, controls, camera, walls) => {
+
+    // if this is false, movement is disabled, return early
+    if (!controls_enabled) {
+        return;
+    }
+
     const move_speed = 5 * delta;
     const previous_position = camera.position.clone();
 

@@ -25,7 +25,7 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
     art_data.forEach((data) => {
 
         const texture = texture_loader.load('images/artworks1/' + data.img_src + '.jpg'); // convert image into texture
-        const material = new THREE.MeshBasicMaterial({ map: texture }); // map texture to a material
+        const material = new THREE.MeshLambertMaterial({ map: texture }); // map texture to a material
 
         // convert material into mesh with proper dimensions
         const art = new THREE.Mesh(
@@ -160,6 +160,8 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
                 art.position.set(0, 0, -(1 / 96));
                 frame.position.set(0, -((data.border.frame_height + 1) / 2) / 12, 0);
                 matte.position.set(0, 0, -(1 / 48));
+                console.log(art.position);
+                console.log(art_group.position);
             }
             
             photos_placed_1++; // add one to counter, even if this photo is using a custom position, this is required for defaults
@@ -243,6 +245,8 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
         art_group.user_data = {
             type: 'photograph',
             info: data.metadata,
+            width: data.size.width,
+            height: data.size.height
         };
 
         arts.push(art_group);
