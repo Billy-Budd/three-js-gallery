@@ -1,0 +1,20 @@
+image 1:
+has a custom x position
+has a custom matte color
+has unconventional frame (had non null values for size, but custom size was set to false)
+has a custom frame color
+has a custom light intensity lower than room light intensity
+has a custom light color
+
+image 2:
+has a custom x position
+has a custom y position
+has a null matte color
+has a custom frame, but values are null or 0
+has a null frame color
+has a null light intensity
+has a null light color
+
+image 3:
+has a custom y position (also an x, but its set to 0)
+has a frame with a 0 and a numerical value, custom set to false (fits in 20x16)
