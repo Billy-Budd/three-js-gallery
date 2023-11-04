@@ -8,7 +8,9 @@
         "main_wall_color": "#ffffff", 
         "side_wall_color": "#ffffff",
         "floor_color": "#ffffff",
-        "moodiness": "moody bright",
+        "ceiling_color": "#ffffff",
+        "floor_texture": "parquet_wood.jpg",
+        "moodiness": "moody dark",
         "ambient_light_color": "#ffffff"
     },
     "size": {
@@ -29,7 +31,7 @@
                 "height": 16
             },
             "matte": {
-            "color": "#cc00cc"
+                "color": "#cc00cc"
             },
             "frame": {
                 "custom": false,
@@ -38,7 +40,7 @@
                 "color": "#ff00ff"
             },
             "light": {
-                "intensity": 2.4,
+                "intensity": 1.4,
                 "color": "#000088"
             },
             "metadata": {
@@ -63,7 +65,7 @@
                 "height": 12
             },
             "matte": {
-            "color": null
+                "color": null
             },
             "frame": {
                 "custom": true,
@@ -97,434 +99,434 @@
                 "height": 12
             },
             "matte": {
-            "color": null
+                "color": null
             },
             "frame": {
                 "custom": false,
                 "width": 0,
                 "height": 12,
-                "color": //
+                "color": "#0000ff"
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": 4.0,
+                "color": null
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "1984",
+                "artist": "John Lawler",
+                "description": "This comes from a final where I decided to make it all of the pieces literary based. I thought this one was kind of funny being pretty meta by taking a lot of the other photos I took for the final. The title is a reference to George Orwell's 1984 which was one of my favorite books that I was required to read in high school.",
+                "year": 2020,
+                "medium": "Photography",
+                "additional_information": "Taken with a Canon T6 Rebel.",
+                "direction": 1
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 4, 
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": 0,
+                "custom_y": 0,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 12,
+                "height": 18
             },
             "matte": {
-            "color": //
+                "color": "#ff0000"
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": false,
+                "width": null,
+                "height": null,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": 4.0,
+                "color": "#008888"
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "Alien Crime Lord",
+                "artist": "John Lawler",
+                "description": "A heavily edited photo of mine where I got a lower grade on because it was 'too heavily edited' in a photo editing class. It looks like a face melded into a carpet, but they are actually rows of teeth. It also created a weird geometric form which made me choose a song from The Voidz called 'Alien Crime Lord.'",
+                "year": 2021,
+                "medium": "Edited Photography",
+                "additional_information": "Taken with a Canon T6 Rebel and edited with Photoshop.",
+                "direction": 1
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 5,
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": 0,
+                "custom_y": 0,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 24,
+                "height": 18
             },
             "matte": {
-            "color": //
+                "color": null
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": false,
+                "width": 0,
+                "height": 0,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": 0,
+                "color": "#bbbbbb"
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "Blue Screened",
+                "artist": "John Lawler",
+                "description": "An edited photo of me looking out at a 'view' of a Windows bluescreen.",
+                "year": 2020,
+                "medium": "Edited Photography",
+                "additional_information": "Taken with a Canon T6 Rebel and edited with Photoshop.",
+                "direction": 2
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 6,
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": null,
+                "custom_y": null,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 36,
+                "height": 24
             },
             "matte": {
-            "color": //
+                "color": null
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": false,
+                "width": 0,
+                "height": 0,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": 3.0,
+                "color": null
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "Break On Through To The Other Side",
+                "artist": "John Lawler",
+                "description": "A 'diptych' of two photos that I don't particularly like, but its okay. It's name comes from a song by The Doors.",
+                "year": 2020,
+                "medium": "Edited Photography",
+                "additional_information": "Taken with a Canon T6 Rebel and edited with Photoshop.",
+                "direction": 2
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 7,
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": 0,
+                "custom_y": 0,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 18,
+                "height": 12
             },
             "matte": {
-            "color": //
+                "color": null
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": true,
+                "width": 0,
+                "height": 20,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": 2.0,
+                "color": "#ffffff"
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "Complementary",
+                "artist": "John Lawler",
+                "description": "A photo that I took of my hometown's city square where I was taking some photos to finish an assignment with various requirements about color theory and other art elements.",
+                "year": 2020,
+                "medium": "Photography",
+                "additional_information": "Taken with a Canon T6 Rebel.",
+                "direction": 2
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 8,
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": 0,
+                "custom_y": null,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 18,
+                "height": 24
             },
             "matte": {
-            "color": //
+                "color": null
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": false,
+                "width": 0,
+                "height": 0,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": null,
+                "color": null
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "Days That Got Away",
+                "artist": "John Lawler",
+                "description": "A photo I took early in the year of 2020. I had these cheap party lights that I photographed my roomate with. The name is in reference to a MGMT song of the same name.",
+                "year": 2020,
+                "medium": "Edited Photography",
+                "additional_information": "Taken with a Canon T6 Rebel and edited with Photoshop.",
+                "direction": 2
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 9,
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": 0,
+                "custom_y": 0,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 18,
+                "height": 12
             },
             "matte": {
-            "color": //
+                "color": null
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": true,
+                "width": 20,
+                "height": null,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": null,
+                "color": null
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "Every Breath You Take",
+                "artist": "John Lawler",
+                "description": "A photo taken by myself through a kitchen window in my apartment. I like the creepy and off-kilter angle and it fit with my Halloween/spooky themed set of photos. The name is in reference to a song by The Police that also has creepy undertones.",
+                "year": 2020,
+                "medium": "Photography",
+                "additional_information": "Taken with a Canon T6 Rebel.",
+                "direction": 2
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 10,
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": null,
+                "custom_y": null,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 18,
+                "height": 12
             },
             "matte": {
-            "color": //
+                "color": null
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": false,
+                "width": null,
+                "height": null,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": null,
+                "color": null
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "Yorick",
+                "artist": "John Lawler",
+                "description": "Although trite, I enjoyed taking this one because I like Hamlet. I liked taking a very moody photo where I had to take many photos to get it in focus as well.",
+                "year": 2020,
+                "medium": "Photography",
+                "additional_information": "Taken with a Canon T6 Rebel.",
+                "direction": 3
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 11,
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": null,
+                "custom_y": null,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 12,
+                "height": 18
             },
             "matte": {
-            "color": //
+                "color": null
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": true,
+                "width": 24,
+                "height": 30,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": null,
+                "color": null
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "Mr. Blue Sky",
+                "artist": "John Lawler",
+                "description": "Just a quick photo that I've liked for a while. It has a nice blue color, giving it the name from the Electric Light Orchestra.",
+                "year": 2020,
+                "medium": "Photography",
+                "additional_information": "Taken with a Canon T6 Rebel.",
+                "direction": 3
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 12,
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": null,
+                "custom_y": null,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 18,
+                "height": 12
             },
             "matte": {
-            "color": //
+                "color": null
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": false,
+                "width": 0,
+                "height": 0,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": null,
+                "color": null
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "Roundabout",
+                "artist": "John Lawler",
+                "description": "A rather difficult photo I took through the peephole in my door. The name is in reference to the Yes song of the same name.",
+                "year": 2020,
+                "medium": "Photography",
+                "additional_information": "Taken with a Canon T6 Rebel.",
+                "direction": 3
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 13,
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": null,
+                "custom_y": null,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 18,
+                "height": 12
             },
             "matte": {
-            "color": //
+                "color": null
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": false,
+                "width": 0,
+                "height": 0,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": null,
+                "color": null
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "Lateralus",
+                "artist": "John Lawler",
+                "description": "A photo that I used a lot of Photoshop settings to make as well as using more abstract items around the house. The title comes from the Tool song of the same name.",
+                "year": 2020,
+                "medium": "Edited Photography",
+                "additional_information": "Taken with a Canon T6 Rebel and edited with Photoshop.",
+                "direction": 3
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 14,
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": null,
+                "custom_y": null,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 24,
+                "height": 16
             },
             "matte": {
-            "color": //
+                "color": null
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": false,
+                "width": 0,
+                "height": 0,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": null,
+                "color": null
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "Future Club",
+                "artist": "John Lawler",
+                "description": "A photo I took from a Perturbator concert where they played the song of the same name.",
+                "year": 2019,
+                "medium": "Photography",
+                "additional_information": "Taken with a Samsung S10.",
+                "direction": 4
             }
         },
         {
-            "image_id": ,// 
+            "image_id": 15,
             "position": {
-                "custom_x": ,//
-                "custom_y": ,//
-                "custom_position": //
+                "custom_x": 0,
+                "custom_y": 0,
+                "custom_position": false
             },
             "size": {
-                "width": ,//
-                "height": //
+                "width": 18,
+                "height": 12
             },
             "matte": {
-            "color": //
+                "color": null
             },
             "frame": {
-                "custom": ,//
-                "width": ,//
-                "height": ,//
-                "color": //
+                "custom": false,
+                "width": 0,
+                "height": 0,
+                "color": null
             },
             "light": {
-                "intensity": ,//
-                "color": //
+                "intensity": null,
+                "color": null
             },
             "metadata": {
-                "title": ,//
-                "artist": ,//
-                "description": ,//
-                "year": ,//
-                "medium": ,//
-                "additional_information": ,//
-                "direction": //
+                "title": "At The Mountains of Madness",
+                "artist": "John Lawler",
+                "description": "Another one I took for my spooky set. Name is from a song by Mountain Witch which is in reference to an HP Lovecraft novel.",
+                "year": 2020,
+                "medium": "Photography",
+                "additional_information": "Taken with a Canon T6 Rebel.",
+                "direction": 4
             }
         }
     ]

@@ -78,6 +78,7 @@ export const setupRendering = (
                                 camera.rotation.set(0, Math.PI, 0);
                         }
 
+                        // photos on wall 4
                         else if (art.user_data.info.direction == 4) {
                             camera.position.set(art.position.x + distance_threshold - (1 / (art.user_data.height / 12)), 
                                 0,

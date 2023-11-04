@@ -1,10 +1,11 @@
-import primary_json from '../example.json' assert { type: "json" };
+import primary_json from '../example2.json' assert { type: "json" };
 
 
 export function generateArtData() {
 
     const art_data = [];
 
+    // copy all the data from json
     primary_json.images.forEach((image) => {
 
         const item = {
@@ -12,8 +13,8 @@ export function generateArtData() {
             img_src: image.image_id,
 
             position: {
-                center_in_from_left: image.position.center_in_from_left,
-                center_in_from_eyelevel: image.position.center_in_from_eyelevel,
+                custom_x: image.position.custom_x,
+                custom_y: image.position.custom_y,
                 custom_position: image.position.custom_position
             },
 
@@ -22,17 +23,20 @@ export function generateArtData() {
                 height: image.size.height
             },
 
-            border: {
+            matte: {
+                color: image.matte.color
+            },
 
-                matte: {
-                    width: image.border.matte.custom_width,
-                    height: image.border.matte.custom_height
-                },
+            frame: {
+                custom: image.frame.custom,
+                width: image.frame.width, 
+                height: image.frame.height,
+                color: image.frame.color
+            },
 
-                frame: image.border.frame,
-                frame_width: image.border.frame_width,
-                frame_height: image.border.frame_height,
-                frame_color: image.border.frame_color
+            light: {
+                intensity: image.light.intensity,
+                color: image.light.color
             },
 
             metadata: {
@@ -46,8 +50,10 @@ export function generateArtData() {
             }
         };
 
+        // add item to array of data
         art_data.push(item);
     });
 
+    // return art data
     return art_data;
 }

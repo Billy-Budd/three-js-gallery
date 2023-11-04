@@ -2,25 +2,22 @@ important tasks:
 - entry card update
 - cover photo (ask diane for picture, or go take some with dslr from library)
 - matte math for weighted bottom
-- finalize json with new stuff and reflect in artdata.js
 - ask frontend about outside sim editing
 - info card update
 - saving json stuff, see below
 - fix the event listener problem
 
 medium importance:
-- make json test all cases for frame generation
-- make json test all cases for art position (default and custom positions)
-- show different color mattes
-- show different color frames
-- remove images.border.matte.present value, doesnt do anything
 - create loading screen
-- for custom position: fix on click viewing y value
+
 
 future stuff:
 - curator vs public view
 - how to incorporate with existing website. I think vaughan will know something about this but i feel bad about asking him how to do this
+
+bugs:
 - fix shift movement bug
+- for custom position: fix on click viewing y value (possibly do not fix?)
 
 RAMBLING NOTES:
 

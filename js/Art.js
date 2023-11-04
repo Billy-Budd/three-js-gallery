@@ -5,7 +5,11 @@ import { createFrame } from './Frames.js';
 import { createMatte } from './Matte.js';
 import { createSpotlight } from './Lighting.js';
 
-export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3, photos_on_4, gallery_width, gallery_length, gallery_height, wall_offset, ambient_light_intensity, scene) {
+export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3, photos_on_4, 
+    gallery_width, gallery_length, gallery_height, wall_offset, 
+    ambient_light_intensity, scene) {
+    
+    // create a place to store all of the art in gallery
     let arts = [];
 
     // counters for placing photos in default positions
@@ -29,6 +33,7 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
     // create mesh from images, place them, rotate them
     art_data.forEach((data) => {
 
+        // grab the texture and apply that texture to a material (lambert has lighting effects applied to it)
         const texture = texture_loader.load('images/artworks1/' + data.img_src + '.jpg'); // convert image into texture
         const material = new THREE.MeshLambertMaterial({ map: texture }); // map texture to a material
 
@@ -38,95 +43,114 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
             material
         );
 
-        if (data.border.frame_color == null) {
-            data.border.frame_color = primary_frame_color;
+        // if frame color is null, give it the default color
+        if (data.frame.color == null) {
+            data.frame.color = primary_frame_color;
         }
 
         // create frame
         let frame = new THREE.Object3D;
 
         // if there is something wrong/there is no value, use a default generation method
-        if (data.border.frame_width == 0 || data.border.frame_width == null ||
-            data.border.frame_height == 0 || data.border.frame_height == null) {
+        if (data.frame.width == 0 || data.frame.width == null ||
+            data.frame.height == 0 || data.frame.height == null) {
 
             // data.border.frame == false means there is no custom frame
-            if (data.border.frame == false) {
+            if (data.frame.custom == false) {
 
                 // 20x16 frame will fit, update values for positional math
                 if (data.size.width < 20 && data.size.height < 16) {
                     console.log("Photo had no default frame size and fits 20x16");
-                    frame = createFrame(20, 16, 
-                        data.border.frame_color, secondary_frame_color);
 
-                    data.border.frame_width = 20;
-                    data.border.frame_height = 16;
+                    // create 20x16
+                    frame = createFrame(20, 16, 
+                        data.frame.color, secondary_frame_color);
+
+                    // update values to be in line with default frame
+                    data.frame.width = 20;
+                    data.frame.height = 16;
                 }
     
                 // 16x20 frame will fit, update values for positional math
                 else if (data.size.width < 16 && data.size.height < 20 ) {
                     console.log("Photo had no default frame size and fits 16x20");
-                    frame = createFrame(16, 20, 
-                        data.border.frame_color, secondary_frame_color);
 
-                    data.border.frame_width = 16;
-                    data.border.frame_height = 20;
+                    // create 16x20
+                    frame = createFrame(16, 20, 
+                        data.frame.color, secondary_frame_color);
+
+                    // update values to be in line with default frame
+                    data.frame.width = 16;
+                    data.frame.height = 20;
                 }
     
                 // 36x24 frame will fit, update values for positional math
                 else if (data.size.width < 36 && data.size.height < 24) {
                     console.log("Photo had no default frame size and fits 36x24");
-                    frame = createFrame(36, 24, 
-                        data.border.frame.frame_color, secondary_frame_color);
 
-                    data.border.frame_width = 36;
-                    data.border.frame_height = 24;
+                    // create 36x24
+                    frame = createFrame(36, 24, 
+                        data.frame.color, secondary_frame_color);
+
+                    // update values to be in line with default frame
+                    data.frame.width = 36;
+                    data.frame.height = 24;
                 }
 
                 // 24x36 frame will fit, update values for positional math
                 else if (data.size.width < 24 && data.size.height < 36) {
                     console.log("Photo had no default frame size and fits 24x36");
-                    frame = createFrame(24, 36, 
-                        data.border.frame_color, secondary_frame_color);
 
-                    data.border.frame_width = 24;
-                    data.border.frame_height = 36;
+                    // create 24x36
+                    frame = createFrame(24, 36, 
+                        data.frame.color, secondary_frame_color);
+
+                    // update values to be in line with default frame
+                    data.frame.width = 24;
+                    data.frame.height = 36;
                 }
 
                 // there is no custom frame and no default fits, create large custom frame
                 // update values for positional math
                 else {
                     console.log("Photo had no default frame size and exceeds normal size bounds");
-                    frame = createFrame(data.size.width + 3, data.size.height + 3, 
-                        data.border.frame_color, secondary_frame_color);
 
-                    data.border.frame_width = data.size.width + 3;
-                    data.border.frame_height = data.size.height + 3;
+                    // create larger frame
+                    frame = createFrame(data.size.width + 3, data.size.height + 3, 
+                        data.frame.color, secondary_frame_color);
+
+                    // update values to be in line with larger frame
+                    data.frame.width = data.size.width + 3;
+                    data.frame.height = data.size.height + 3;
                 }
             }
 
             // theoretically, this should never happen
             // it 'has' a custom frame, but one of the values was null or zero
-            else if (data.border.frame == true) {
+            else if (data.frame.custom == true) {
                 console.log("Photo frame is in a nonexsitent state, yet this value is true. Creating frame anyways");
 
                 // create a value to make a frame with where there is a 0 or null value
-                if (data.border.frame_width == 0 || data.border.frame_width == null) {
-                    data.border.frame_width = data.size.width + 3;
+                if (data.frame.width == 0 || data.frame.width == null) {
+                    data.frame.width = data.size.width + 3;
                 }
-                if (data.border.frame_height == 0 || data.border.frame_height == null) {
-                    data.border.frame_height = data.size.height + 3;
+                if (data.frame.height == 0 || data.frame.height == null) {
+                    data.frame.height = data.size.height + 3;
                 }
 
-                frame = createFrame(data.border.frame_width, data.border.frame_height, 
-                    data.border.frame_color, secondary_frame_color);
+                // create frame
+                frame = createFrame(data.frame.width, data.frame.height, 
+                    data.frame.color, secondary_frame_color);
             } 
         }
 
         // there is a custom frame, use directly from json
-        else if (data.border.frame == true) {
+        else if (data.frame.custom == true) {
             console.log("Photo had a frame assigned in .json file")
-            frame = createFrame(data.border.frame_width, data.border.frame_height, 
-                data.border.frame_color, secondary_frame_color);
+
+            // create frame with the custom values
+            frame = createFrame(data.frame.width, data.frame.height, 
+                data.frame.color, secondary_frame_color);
         }
 
         // catch statement, in case the json had incorrect type/value
@@ -136,8 +160,8 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
 
             // attempt to create one from values in json
             try {
-                frame = createFrame(data.border.frame_width, data.border.frame_height, 
-                    data.border.frame_color, secondary_frame_color);
+                frame = createFrame(data.frame.width, data.frame.height, 
+                    data.frame.color, secondary_frame_color);
             }
 
             // if there was an error, create a 40x40 frame with basic values and hope that works for that photo
@@ -148,13 +172,10 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
             }
         }
 
-        const matte_color = 0xf2f2f2;
-
         // create the matte 
         // need code to set a regular matte color when value is null
-        const matte = createMatte(data.border.frame_width, data.border.frame_height, matte_color);
+        const matte = createMatte(data.frame.width, data.frame.height, data.matte.color);
 
-        
         // create a group for photo, matte, and frame
         let art_group = new THREE.Group();
 
@@ -168,28 +189,20 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
 
             // custom position check
             if (data.position.custom_position == true) {
-                art_group.position.set(data.position.center_in_from_left, // set x
-                                 data.position.center_in_from_eyelevel,   // set y
-                                 -((gallery_length / 2) - wall_offset));  // set z - z does not change, this is distance from wall
-
-                console.log(art_group.position)
+                art_group.position.set(data.position.custom_x,  // set x
+                    data.position.custom_y,                     // set y
+                    -((gallery_length / 2) - wall_offset));     // set z - z does not change, this is distance from wall
             }
 
             // default position
             else {
-                art_group.position.set((photos_placed_1 / (photos_on_1 + 1)) * gallery_width - (gallery_width / 2), // set each photo on the wall to be evenly spaced from photographic midpoint
-                                  0,                                                                                // set y - set at eyelevel
-                               -((gallery_length / 2) - wall_offset));                                              // set z - z does not change, this is distance from wall
+                art_group.position.set(
+                    (photos_placed_1 / (photos_on_1 + 1)) * gallery_width - (gallery_width / 2),    // set each photo on the wall to be evenly spaced from photographic midpoint
+                    0,                                                                              // set y - set at eyelevel
+                    -((gallery_length / 2) - wall_offset));                                         // set z - z does not change, this is distance from wall
 
-                //art.position.set(0, 0, -(1 / 96));
-                //frame.position.set(0, -((data.border.frame_height + 1) / 2) / 12, 0);
-                //matte.position.set(0, 0, -(1 / 48));
-                //const aaaa = 
             }
-            art.position.set(0, 0, -(1 / 96));
-                frame.position.set(0, -((data.border.frame_height + 1) / 2) / 12, 0);
-                matte.position.set(0, 0, -(1 / 48));
-            
+
             photos_placed_1++; // add one to counter, even if this photo is using a custom position, this is required for defaults
         }
 
@@ -199,19 +212,16 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
             // custom position check
             if (data.position.custom_position == true) {
                 art_group.position.set(((gallery_width / 2) - wall_offset), // set x - x does not change, this is distance from wall
-                                   data.position.center_in_from_eyelevel,   // set y
-                                   data.position.center_in_from_left);      // set z
+                                   data.position.custom_y,                  // set y
+                                   data.position.custom_x);                 // set z (left right adjustment)
             }
 
             // default position
             else {
-                art_group.position.set(((gallery_width / 2) - wall_offset),                                       // set x - x does not change, this is distance from wall
-                                   0,                                                                             // set y - set at eyelevel
-                                  (photos_placed_2 / (photos_on_2 + 1)) * gallery_length - (gallery_length / 2)); // set z - sets each photo evenly spaced from by photographic midpoint
-
-                art.position.set(0, 0, -(1 / 96));
-                frame.position.set(0, -((data.border.frame_height + 1) / 2) / 12, 0);
-                matte.position.set(0, 0, -(1 / 48));
+                art_group.position.set(
+                    ((gallery_width / 2) - wall_offset),                                            // set x - x does not change, this is distance from wall
+                    0,                                                                              // set y - set at eyelevel
+                    (photos_placed_2 / (photos_on_2 + 1)) * gallery_length - (gallery_length / 2)); // set z - sets each photo evenly spaced from by photographic midpoint
             }
 
             photos_placed_2++; // add one to counter, even if this photo is using custom position, it is required for defaults
@@ -223,20 +233,17 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
 
             // custom position check
             if (data.position.custom_position == true) {
-                art_group.position.set(-data.position.center_in_from_left, // set x
-                                  data.position.center_in_from_eyelevel,   // set y
-                                ((gallery_length / 2) - wall_offset));     // set z - z does not change, this is distance from wall
+                art_group.position.set(-data.position.custom_x, // set x
+                    data.position.custom_y,                     // set y
+                    ((gallery_length / 2) - wall_offset));      // set z - z does not change, this is distance from wall
             }
 
             // default position
             else {
-                art_group.position.set(-((photos_placed_3 / (photos_on_3 + 1)) * gallery_width - (gallery_width / 2)), // set x - x does not change, this is distance from wall
-                                   0,                                                                                  // set y - set at eyelevel
-                                  ((gallery_length / 2) - wall_offset));                                               // set z - sets each photo evenly spaced from by photographic midpoint
-
-                art.position.set(0, 0, -(1 / 96));
-                frame.position.set(0, -((data.border.frame_height + 1) / 2) / 12, 0);
-                matte.position.set(0, 0, -(1 / 48));
+                art_group.position.set(
+                    -((photos_placed_3 / (photos_on_3 + 1)) * gallery_width - (gallery_width / 2)), // set x - x does not change, this is distance from wall
+                    0,                                                                              // set y - set at eyelevel
+                    ((gallery_length / 2) - wall_offset));                                          // set z - sets each photo evenly spaced from by photographic midpoint
             }
 
             photos_placed_3++; // add one to counter, even if this photo is using custom position, it is required for defaults
@@ -249,25 +256,22 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
             // custom position check
             if (data.position.custom_position == true) {
                 art_group.position.set(((gallery_width / 2) - wall_offset), // set x - x does not change, this is distance from wall
-                                   data.position.center_in_from_eyelevel,   // set y
-                                   data.position.center_in_from_left);      // set z
+                data.position.custom_y,                                     // set y
+                data.position.custom_x);                                    // set z
             }
 
             // default position
             else {
-                art_group.position.set(-((gallery_width / 2) - wall_offset),                                           // set x - x does not change, this is distance from wall
-                                    0,                                                                                 // set y - set at eyelevel
-                                   -((photos_placed_4 / (photos_on_4 + 1)) * gallery_length - (gallery_length / 2)));  // set z - sets each photo evenly spaced from by photographic midpoint
-                    
-                art.position.set(0, 0, -(1 / 96));
-                frame.position.set(0, -((data.border.frame_height + 1) / 2) / 12, 0);
-                matte.position.set(0, 0, -(1 / 48));
+                art_group.position.set(-((gallery_width / 2) - wall_offset),                        // set x - x does not change, this is distance from wall
+                0,                                                                                  // set y - set at eyelevel
+                -((photos_placed_4 / (photos_on_4 + 1)) * gallery_length - (gallery_length / 2)));  // set z - sets each photo evenly spaced from by photographic midpoint
             }
 
             photos_placed_4++; // add one to counter, even if this photo is using custom position, it is required for defaults
             art_group.rotation.y = Math.PI / 2; // rotate 90 degrees in radians 
         }
 
+        // important information for other functionalities
         art_group.user_data = {
             type: 'photograph',
             info: data.metadata,
@@ -275,14 +279,28 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
             height: data.size.height
         };
 
-        // create a light per settings in json
-        /**
-         * if light intensity < 0 || null || light intensity < ambient light intensity
-         *  lightintensity = ambient light intensity + 1
-         * if color == null 
-         * color = 0xffffff 
-         */
-        createSpotlight(4.0, 0xffffff, art_group.position, gallery_height_offset, scene, data.metadata.direction);
+        // adjust each item to fix texture fighting
+        art.position.set(0, 0, -(1 / 96));
+        frame.position.set(0, -((data.frame.height + 1) / 2) / 12, 0);
+        matte.position.set(0, 0, -(1 / 48));
+
+        // if intensity does not fit any of the requirements, make it one above the ambient lighting
+        if (data.light.intensity <= 0 || 
+            data.light.intensity == null || 
+            data.light.intensity < ambient_light_intensity) {
+            
+            data.light.intensity = ambient_light_intensity + 1;
+        }
+
+        // default to white if it is null
+        if (data.light.color == null) {
+            data.light.coolor = 0xffffff;
+        }
+
+        // create spotlight
+        createSpotlight(data.light.intensity, data.light.color, art_group.position, gallery_height_offset, scene, data.metadata.direction);
+
+        // add art to the group
         arts.push(art_group);
     });
 

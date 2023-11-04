@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import primary_json from '../example.json' assert { type: "json" };
+import primary_json from '../example2.json' assert { type: "json" };
 
 import { scene, setupScene,	 addObjectsToScene } from './Scene.js';
 import { createArt } from './Art.js';
