@@ -3,8 +3,9 @@ import * as THREE from 'three';
 import { generateArtData } from './ArtData.js'
 import { createFrame } from './Frames.js';
 import { createMatte } from './Matte.js';
+import { createSpotlight } from './Lighting.js';
 
-export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3, photos_on_4, gallery_width, gallery_length, wall_offset) {
+export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3, photos_on_4, gallery_width, gallery_length, gallery_height, wall_offset, ambient_light_intensity, scene) {
     let arts = [];
 
     // counters for placing photos in default positions
@@ -19,7 +20,11 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
     // hard coded because hex color math does not work with variables
     // we can just assume that they should be black
     // possibly work on in the future (this will be a permanent solution)
+    const primary_frame_color = 0x444444;
     const secondary_frame_color = 0x000000;
+
+    // create a height just under ceiling to place lights
+    const gallery_height_offset = gallery_height - (1 / 12);
     
     // create mesh from images, place them, rotate them
     art_data.forEach((data) => {
@@ -32,6 +37,10 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
             new THREE.PlaneGeometry((data.size.width / 12), (data.size.height / 12)),
             material
         );
+
+        if (data.border.frame_color == null) {
+            data.border.frame_color = primary_frame_color;
+        }
 
         // create frame
         let frame = new THREE.Object3D;
@@ -99,6 +108,15 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
             // it 'has' a custom frame, but one of the values was null or zero
             else if (data.border.frame == true) {
                 console.log("Photo frame is in a nonexsitent state, yet this value is true. Creating frame anyways");
+
+                // create a value to make a frame with where there is a 0 or null value
+                if (data.border.frame_width == 0 || data.border.frame_width == null) {
+                    data.border.frame_width = data.size.width + 3;
+                }
+                if (data.border.frame_height == 0 || data.border.frame_height == null) {
+                    data.border.frame_height = data.size.height + 3;
+                }
+
                 frame = createFrame(data.border.frame_width, data.border.frame_height, 
                     data.border.frame_color, secondary_frame_color);
             } 
@@ -118,18 +136,22 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
 
             // attempt to create one from values in json
             try {
-                frame = createFrame(data.border.frame_width, data.border.frame_height, data.border.frame_color, secondary_frame_color);
+                frame = createFrame(data.border.frame_width, data.border.frame_height, 
+                    data.border.frame_color, secondary_frame_color);
             }
 
             // if there was an error, create a 40x40 frame with basic values and hope that works for that photo
             catch(error) {
-                frame = createFrame(40, 40, 0x444444, 0x000000);
+                console.log("Error found, creating large frame.");
+                frame = createFrame(40, 40, 
+                    primary_frame_color, secondary_frame_color);
             }
         }
 
         const matte_color = 0xf2f2f2;
 
         // create the matte 
+        // need code to set a regular matte color when value is null
         const matte = createMatte(data.border.frame_width, data.border.frame_height, matte_color);
 
         
@@ -149,6 +171,8 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
                 art_group.position.set(data.position.center_in_from_left, // set x
                                  data.position.center_in_from_eyelevel,   // set y
                                  -((gallery_length / 2) - wall_offset));  // set z - z does not change, this is distance from wall
+
+                console.log(art_group.position)
             }
 
             // default position
@@ -157,12 +181,14 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
                                   0,                                                                                // set y - set at eyelevel
                                -((gallery_length / 2) - wall_offset));                                              // set z - z does not change, this is distance from wall
 
-                art.position.set(0, 0, -(1 / 96));
+                //art.position.set(0, 0, -(1 / 96));
+                //frame.position.set(0, -((data.border.frame_height + 1) / 2) / 12, 0);
+                //matte.position.set(0, 0, -(1 / 48));
+                //const aaaa = 
+            }
+            art.position.set(0, 0, -(1 / 96));
                 frame.position.set(0, -((data.border.frame_height + 1) / 2) / 12, 0);
                 matte.position.set(0, 0, -(1 / 48));
-                console.log(art.position);
-                console.log(art_group.position);
-            }
             
             photos_placed_1++; // add one to counter, even if this photo is using a custom position, this is required for defaults
         }
@@ -249,6 +275,14 @@ export function createArt(texture_loader, photos_on_1, photos_on_2, photos_on_3,
             height: data.size.height
         };
 
+        // create a light per settings in json
+        /**
+         * if light intensity < 0 || null || light intensity < ambient light intensity
+         *  lightintensity = ambient light intensity + 1
+         * if color == null 
+         * color = 0xffffff 
+         */
+        createSpotlight(4.0, 0xffffff, art_group.position, gallery_height_offset, scene, data.metadata.direction);
         arts.push(art_group);
     });
 

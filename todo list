@@ -5,8 +5,8 @@ important tasks:
 - finalize json with new stuff and reflect in artdata.js
 - ask frontend about outside sim editing
 - info card update
-- lighting, see notes below (moreso, make more lights that are weaker??)
 - saving json stuff, see below
+- fix the event listener problem
 
 medium importance:
 - make json test all cases for frame generation
@@ -15,18 +15,17 @@ medium importance:
 - show different color frames
 - remove images.border.matte.present value, doesnt do anything
 - create loading screen
+- for custom position: fix on click viewing y value
 
 future stuff:
 - curator vs public view
 - how to incorporate with existing website. I think vaughan will know something about this but i feel bad about asking him how to do this
+- fix shift movement bug
 
 RAMBLING NOTES:
 
 math:: [size of matte - height of art] / 4
 take this value and move up the art by this amount to give it some weight at the bottom? ask diane
-
-lighting? this part is going to suck. I don't know what to do here. 
- - ask diane about this. can we just do 4 spotlights? or maybe we can do one for each photo. this is going to be like another 2 hours of work or something :((((
 
 Once these things are done, we need a way that a frame, matte, image desc, image placement can be moved inside the simulation. this needs to require curator view, need to ask backend team how we can do this
  - we will need a way server side to do this (saving movements). must ask backend what they think about this 
@@ -40,4 +39,7 @@ NOTES:
 frames:
 - the frames are set to be a bit larger than originally intended. may remove when there is actual art from the collection, but it fits better like this for now
 - theres a thing at the bottom of Frames.js that has some math for moving the frames in a logical way to move them to the correct y position, but need to know if that works with custom positions, which means that there needs to be another json (or rather, we could make a single wall check this) 
+
+custom position:
+- there are no safety bounds for this, and to be honest i dont feel like adding them because i feel like it should be 'on the student' whether or not they checked before turning in
 

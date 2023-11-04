@@ -12,9 +12,8 @@ export function generateArtData() {
             img_src: image.image_id,
 
             position: {
-                x: image.position.center_in_from_left,
-                y: image.position.center_in_from_eyelevel,
-                z: image.position.center_in_from_left,
+                center_in_from_left: image.position.center_in_from_left,
+                center_in_from_eyelevel: image.position.center_in_from_eyelevel,
                 custom_position: image.position.custom_position
             },
 

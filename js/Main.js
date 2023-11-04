@@ -4,7 +4,7 @@ import primary_json from '../example.json' assert { type: "json" };
 import { scene, setupScene,	 addObjectsToScene } from './Scene.js';
 import { createArt } from './Art.js';
 import { setupWalls } from './Walls.js';
-import { createAmbientLight, createSpotlight } from './Lighting.js';
+import { createAmbientLight } from './Lighting.js';
 import { setupFloor } from './Floor.js';
 import { setupCeiling } from './Ceiling.js';
 import { createBoundingBoxes } from './BoundingBox.js';
@@ -59,16 +59,32 @@ console.log("photo_1:", photos_on_1,
 			"photo_3:", photos_on_3,
 			"photo_4:", photos_on_4);
 
+// turn string value of brightness into a value we can use for brightness
+let ambient_light_intensity;
+
+if (primary_json.appearance.moodiness == "dark") {
+	ambient_light_intensity = 0.5;
+} 
+else if (primary_json.appearance.moodiness == "moody dark") {
+	ambient_light_intensity = 1.5;
+}
+else if (primary_json.appearance.moodiness == "moody bright") {
+	ambient_light_intensity = 2.5;
+}
+else if (primary_json.appearance.moodiness == "bright") {
+	ambient_light_intensity = 3.5;
+}
+
+// kind of a last minute add, but scene needs to be here for lighting, even though
+// art is not added to the scene here
+// ambient_light_intensity is added for safety in light creation
 const art = createArt(texture_loader, 
 	photos_on_1, photos_on_2, photos_on_3, photos_on_4, 
-	gallery_width, gallery_length, wall_offset);
+	gallery_width, gallery_length, gallery_height, wall_offset, 
+	ambient_light_intensity, scene);
 
-//const lighting = setupLighting(scene);
-
-const ambientlight22 = createAmbientLight(0xffffff, 1.5);
-scene.add(ambientlight22);
-const aaa = createSpotlight(1.7, 0xffffff, new THREE.Vector3(-7.5, 0, -12.41666), gallery_height);
-scene.add(aaa);
+const ambient_light = createAmbientLight(primary_json.appearance.ambient_light_color, ambient_light_intensity);
+scene.add(ambient_light);
 
 createBoundingBoxes(walls);
 
