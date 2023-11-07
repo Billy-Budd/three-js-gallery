@@ -1,23 +1,24 @@
 important tasks:
-- entry card update
-- cover photo (ask diane for picture, or go take some with dslr from library)
+- entry card update (css/html)
+- cover photo (waiting for rachel)
 - matte math for weighted bottom
-- ask frontend about outside sim editing
-- info card update
-- saving json stuff, see below
-- fix the event listener problem
+- info card update (css)
 
 medium importance:
 - create loading screen
+  - gallery can be slow to load, we can use a three js function to count loaded textures while camera does a 360 so that its smooth by the time you get in
 
+waiting:
+- ask frontend about outside sim editing (waiting on API)
+  - saving json stuff, see below (waiting on API)
 
 future stuff:
 - curator vs public view
-- how to incorporate with existing website. I think vaughan will know something about this but i feel bad about asking him how to do this
+- how to incorporate with existing website. I think vaughan/donnie will know something about this but i feel bad about asking him how to do this
 
-bugs:
-- fix shift movement bug
-- for custom position: fix on click viewing y value (possibly do not fix?)
+bugs: 
+- shift movement bug: holding shift while using wasd to move can cause event listeners to not recognize that a key has been unpressed. this also causes the camera to begin moving in a direction, as well as move beyond the bounding box and leave the gallery entirely without being able to move back in. current fix: reload page, do not press shift. 
+- fix the event listener problem (click to view): in Render.js, we create event listeners for when a photo is clicked. The issue is that it creates [the amount of times your machine can complete the render function in the amount of time a single click is registered]. This can create upwards of like 2-300 event listeners, causing lag. current fix: none
 
 RAMBLING NOTES:
 
@@ -27,16 +28,3 @@ take this value and move up the art by this amount to give it some weight at the
 Once these things are done, we need a way that a frame, matte, image desc, image placement can be moved inside the simulation. this needs to require curator view, need to ask backend team how we can do this
  - we will need a way server side to do this (saving movements). must ask backend what they think about this 
  - we can move it all we want in the sim, but there is no way to save these values
-
-user options
-- flooring options
-
-NOTES:
-
-frames:
-- the frames are set to be a bit larger than originally intended. may remove when there is actual art from the collection, but it fits better like this for now
-- theres a thing at the bottom of Frames.js that has some math for moving the frames in a logical way to move them to the correct y position, but need to know if that works with custom positions, which means that there needs to be another json (or rather, we could make a single wall check this) 
-
-custom position:
-- there are no safety bounds for this, and to be honest i dont feel like adding them because i feel like it should be 'on the student' whether or not they checked before turning in
-
